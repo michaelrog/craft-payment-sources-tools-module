@@ -1,0 +1,40 @@
+{% set currentYear = date()|date_modify("+1 year").format('Y') %}
+
+<div id="gateway-{{ gateway.id }}-form" class="gateway-form hidden">
+
+	<form method="POST" id="form-gateway-{{ gateway.id }}">
+
+		<input type="hidden" name="action" value="payment-sources-tools/create-payment-source"/>
+		<input type="hidden" name="userId" value="{{ userId }}"/>
+		<input type="hidden" name="gatewayId" value="{{ gateway.id }}"/>
+		{{ csrfInput() }}
+
+		{{ formHtml | raw }}
+
+		<div class="footer">
+			<div class="buttons right">
+				<input type="submit" class="btn submit" value="Save">
+			</div>
+		</div>
+
+	</form>
+
+</div>
+<script>
+//{% js %}
+
+$('#gateway-{{ gateway.id }}-form').on('submit', function (e) {
+
+	$form = $(this);
+
+	if ($form.data('processing')) {
+		e.preventDefault();
+		return false;
+	}
+
+	$form.data('processing', true);
+
+});
+
+//{% endjs %}
+</script>

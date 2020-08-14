@@ -1,0 +1,30 @@
+{#
+	Expects:
+	 - paymentForms: the concattenated HTML of payment forms from all the eligible gateways
+#}
+
+{% import "_includes/forms" as forms %}
+
+<div class="pane">
+
+	<div class="payment-forms">
+
+		{% set paymentFormOptions = [{ label: "Select a gateway"|t('commerce') }] %}
+
+		{% for gateway in gateways %}
+			{% set paymentFormOptions = paymentFormOptions|merge([{ label: gateway.name, value: gateway.id }]) %}
+		{% endfor %}
+
+		{{ forms.selectField({
+			id: 'payment-form-select',
+			label: "Payment Method"|t('commerce'),
+			name: 'gatewayId',
+			options: paymentFormOptions,
+			class: 'payment-form-select'
+		}) }}
+
+		{{ paymentForms | raw }}
+
+	</div>
+
+</div>
