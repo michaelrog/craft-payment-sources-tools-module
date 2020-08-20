@@ -17,6 +17,8 @@ class PaymentSourcesTabAsset extends AssetBundle
 		$this->depends = [
 			CpAsset::class,
 		];
+		
+		$this->css[] = 'PaymentSourceModal.css';
 
 		$this->js[] = 'PaymentSourcesTab.js';
 		$this->js[] = 'PaymentSourceModal.js';
