@@ -52,14 +52,15 @@ class PaymentSourcesTools extends Module
 	public function init()
 	{
 
-		Craft::setAlias('@paymentSourcesToolsTemplates', __DIR__ . DIRECTORY_SEPARATOR . 'web/templates');
+		Craft::setAlias('@michaelrog/paymentsourcestools', __DIR__);
 		parent::init();
 
 		/*
 		 * Register controllers
 		 */
 
-		if (Craft::$app instanceof WebApplication) {
+		if (Craft::$app instanceof WebApplication)
+		{
 			Craft::$app->controllerMap['payment-sources-tools'] = WebController::class;
 		}
 

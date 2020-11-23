@@ -24,7 +24,7 @@ class CpCustomizations extends Component
 			View::class,
 			View::EVENT_REGISTER_CP_TEMPLATE_ROOTS,
 			function(RegisterTemplateRootsEvent $e) {
-				$e->roots['payment-sources-tools'] = Craft::getAlias('@paymentSourcesToolsTemplates');
+				$e->roots['payment-sources-tools'] = Craft::getAlias('@michaelrog/paymentsourcestools/web/templates');
 			}
 		);
 
