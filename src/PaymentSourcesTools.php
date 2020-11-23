@@ -51,7 +51,8 @@ class PaymentSourcesTools extends Module
 	 */
 	public function init()
 	{
-
+		
+		Craft::setAlias('@michaelrog/paymentsourcestools', __DIR__);
 		Craft::setAlias('@paymentSourcesToolsTemplates', __DIR__ . DIRECTORY_SEPARATOR . 'web/templates');
 		parent::init();
 
